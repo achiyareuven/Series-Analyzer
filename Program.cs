@@ -87,7 +87,68 @@ namespace SERIESanalyzer
             
 
         }
-        
+        static void PrintOrignalseries(List<int> numbers)
+        {
+            foreach (int num in numbers)
+            {
+                Console.Write(num + ' ');
+            }
+        }
+        static void PrintRversedseries(List<int> numbers)
+        {
+            for (int i= numbers.Count-1;i>=0; i--)
+            {
+                Console.Write(numbers[i]+ " ");
+            }
+            
+        }
+        static int Getsum(List<int> numbers)
+        {
+            int sum = 0;
+            foreach (int num in numbers)
+            {
+                sum += num;
+            }
+            return sum;
+
+        }
+        static int GetAverage(List<int> numbers)
+        {
+            return Getsum(numbers)/numbers.Count;
+        }
+        static int GetMaxNumber(List<int> numbers)
+        {
+            int max = 0;
+            foreach(int num in numbers)
+            {
+                if (num > max)
+                {
+                    max = num;
+                }
+            }
+            return max;
+        }
+        static int GetMinNumber(List<int> numbers)
+        {
+            int min = GetMaxNumber(numbers);
+            foreach( int num in numbers)
+            {
+                if (num < min)
+                {
+                    min = num;
+                }
+            }
+            return min;
+        }
+        static int GetCountItems(List<int> numbers)
+        {
+            return numbers.Count;
+        }
+        static void GetSorted(List<int> numbers)
+        {
+
+        }
+
 
     }
 }
