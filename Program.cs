@@ -10,6 +10,8 @@ namespace SERIESanalyzer
     {
         static void Main(string[] args)
         {
+
+            Console.WriteLine("בדיקת Git מקומית!");
         }
     }
 }
