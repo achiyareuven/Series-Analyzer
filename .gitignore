@@ -1,0 +1,15 @@
+# Build results
+bin/
+obj/
+
+# VS settings
+.vs/
+*.user
+*.suo
+*.vsp
+*.vsidx
+*.vssscc
+
+# Other
+*.log
+*.DS_Store
