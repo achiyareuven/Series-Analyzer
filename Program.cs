@@ -38,9 +38,11 @@ namespace SERIESanalyzer
                             numbers=GetUserNumbers();
                             break;
                         case 2:
+                            Console.Write("the series is: ");
                             PrintOrignalseries(numbers);
                             break;
                         case 3:
+                            Console.Write("the revesed series is: ");
                             PrintRversedseries(numbers);
                             break;
                         case 4:
@@ -101,7 +103,7 @@ namespace SERIESanalyzer
             Console.WriteLine("1. Input a new series (replaces the current one)");
             Console.WriteLine("2. Display the series (original order)");
             Console.WriteLine("3. Display the series in reverse order");
-            Console.WriteLine("4.Display the series in sorted order(low to high)");
+            Console.WriteLine("4. Display the series in sorted order(low to high)");
             Console.WriteLine("5. Display the maximum value");
             Console.WriteLine("6. Display the minimum value");
             Console.WriteLine("7. Display the average value");
