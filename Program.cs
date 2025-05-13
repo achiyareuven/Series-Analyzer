@@ -24,6 +24,57 @@ namespace SERIESanalyzer
             {
                 numbers = GetUserNumbers();
             }
+            int userchoise;
+            do
+            {
+                ShwoMenue();
+                Console.WriteLine("Choose one of the options one to ten.");
+                string input = Console.ReadLine();
+                if (int.TryParse(input, out userchoise))
+                {
+                    switch (userchoise)
+                    {
+                        case 1:
+                            numbers=GetUserNumbers();
+                            break;
+                        case 2:
+                            PrintOrignalseries(numbers);
+                            break;
+                        case 3:
+                            PrintRversedseries(numbers);
+                            break;
+                        case 4:
+                            GetSorted(numbers);
+                            break;
+                        case 5:
+                            Console.WriteLine(GetMaxNumber(numbers));
+                            break;
+                        case 6:
+                            Console.WriteLine(GetMinNumber(numbers));
+                            break;
+                        case 7:
+                            Console.WriteLine(GetAverage(numbers));
+                            break;
+                        case 8:
+                            Console.WriteLine(GetCountItems(numbers));
+                            break;
+                        case 9:
+                            Console.WriteLine(Getsum(numbers));
+                            break;
+                        case 10:
+                            Console.WriteLine("goodbye");
+                            break;
+                        default:
+                            Console.WriteLine("invalid choise please select number 1-10:");
+                            break;
+
+
+
+                    }
+                }
+
+
+            }
         }
         static bool IsValidSeriesArgs(string[] args)
         {
@@ -91,7 +142,7 @@ namespace SERIESanalyzer
         {
             foreach (int num in numbers)
             {
-                Console.Write(num + ' ');
+                Console.Write(num + " ");
             }
         }
         static void PrintRversedseries(List<int> numbers)
@@ -112,7 +163,7 @@ namespace SERIESanalyzer
             return sum;
 
         }
-        static int GetAverage(List<int> numbers)
+        static double GetAverage(List<int> numbers)
         {
             return Getsum(numbers)/numbers.Count;
         }
@@ -146,7 +197,22 @@ namespace SERIESanalyzer
         }
         static void GetSorted(List<int> numbers)
         {
-
+            for (int i = 0; i < numbers.Count; i++)
+            {
+                for(int j = 0;j< numbers.Count -i - 1; j++)
+                {
+                    if (numbers[j] > numbers[j + 1])
+                    {
+                        int temp = numbers[j];
+                        numbers[j] = numbers[j + 1];
+                        numbers[j + 1] = temp;
+                    }
+                }
+            }
+            foreach (int num in numbers)
+            {
+                Console.Write(num+ ",");
+            }
         }
 
 
