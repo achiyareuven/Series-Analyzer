@@ -27,7 +27,7 @@ namespace SERIESanalyzer
             int userchoise;
             do
             {
-                ShwoMenue();
+                ShowMenue();
                 Console.WriteLine("Choose one of the options one to ten.");
                 string input = Console.ReadLine();
                 if (int.TryParse(input, out userchoise))
@@ -96,7 +96,7 @@ namespace SERIESanalyzer
             }
             return true;
         }
-        static void ShwoMenue()
+        static void ShowMenue()
         {
             Console.WriteLine("1. Input a new series (replaces the current one)");
             Console.WriteLine("2. Display the series (original order)");
@@ -208,14 +208,21 @@ namespace SERIESanalyzer
             List<int> sorted = new List<int>(numbers);
             for (int i = 0; i < sorted.Count; i++)
             {
-                for(int j = 0;j< sorted.Count -i - 1; j++)
+                bool swap = false;
+
+                for (int j = 0;j< sorted.Count -i - 1; j++)
                 {
                     if (sorted[j] > sorted[j + 1])
                     {
                         int temp = sorted[j];
                         sorted[j] = sorted[j + 1];
                         sorted[j + 1] = temp;
+                        swap = true;
                     }
+                }
+                if (!swap)
+                {
+                    break;
                 }
             }
             foreach (int num in sorted)
