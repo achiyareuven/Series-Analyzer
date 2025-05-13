@@ -176,7 +176,7 @@ namespace SERIESanalyzer
         }
         static int GetMaxNumber(List<int> numbers)
         {
-            int max = 0;
+            int max = numbers[0];
             foreach(int num in numbers)
             {
                 if (num > max)
@@ -188,7 +188,7 @@ namespace SERIESanalyzer
         }
         static int GetMinNumber(List<int> numbers)
         {
-            int min = GetMaxNumber(numbers);
+            int min = numbers[0];
             foreach( int num in numbers)
             {
                 if (num < min)
