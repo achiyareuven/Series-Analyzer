@@ -47,19 +47,19 @@ namespace SERIESanalyzer
                             GetSorted(numbers);
                             break;
                         case 5:
-                            Console.WriteLine(GetMaxNumber(numbers));
+                            Console.WriteLine($"The highest number is: {GetMaxNumber(numbers)}");
                             break;
                         case 6:
-                            Console.WriteLine(GetMinNumber(numbers));
+                            Console.WriteLine($"The lowest number is: {GetMinNumber(numbers)}");
                             break;
                         case 7:
-                            Console.WriteLine(GetAverage(numbers));
+                            Console.WriteLine($"The series average is: { GetAverage(numbers)}");
                             break;
                         case 8:
-                            Console.WriteLine(GetCountItems(numbers));
+                            Console.WriteLine($"The series contains: {GetCountItems(numbers)} entries.");
                             break;
                         case 9:
-                            Console.WriteLine(Getsum(numbers));
+                            Console.WriteLine($"the sum is: { Getsum(numbers)}");
                             break;
                         case 10:
                             Console.WriteLine("goodbye");
@@ -72,9 +72,14 @@ namespace SERIESanalyzer
 
                     }
                 }
-
-
+                else
+                {
+                    Console.WriteLine("invalid choise please select number 1-10:");
+                }
+                
             }
+            while (userchoise != 10);
+            
         }
         static bool IsValidSeriesArgs(string[] args)
         {
@@ -103,7 +108,7 @@ namespace SERIESanalyzer
             Console.WriteLine("8. Display the number of elements");
             Console.WriteLine("9. Display the sum of the series");
             Console.WriteLine("10. Exit");
-            Console.WriteLine("Choose one of the options one to ten.");
+            
         }
         static List<int> StringToInt(string[] listy)
         {
@@ -144,6 +149,7 @@ namespace SERIESanalyzer
             {
                 Console.Write(num + " ");
             }
+            Console.WriteLine("");
         }
         static void PrintRversedseries(List<int> numbers)
         {
@@ -151,6 +157,7 @@ namespace SERIESanalyzer
             {
                 Console.Write(numbers[i]+ " ");
             }
+            Console.WriteLine();
             
         }
         static int Getsum(List<int> numbers)
@@ -165,7 +172,7 @@ namespace SERIESanalyzer
         }
         static double GetAverage(List<int> numbers)
         {
-            return Getsum(numbers)/numbers.Count;
+            return (double)Getsum(numbers)/numbers.Count;
         }
         static int GetMaxNumber(List<int> numbers)
         {
@@ -197,22 +204,26 @@ namespace SERIESanalyzer
         }
         static void GetSorted(List<int> numbers)
         {
-            for (int i = 0; i < numbers.Count; i++)
+            Console.Write("The sorted series is ");
+            List<int> sorted = new List<int>(numbers);
+            for (int i = 0; i < sorted.Count; i++)
             {
-                for(int j = 0;j< numbers.Count -i - 1; j++)
+                for(int j = 0;j< sorted.Count -i - 1; j++)
                 {
-                    if (numbers[j] > numbers[j + 1])
+                    if (sorted[j] > sorted[j + 1])
                     {
-                        int temp = numbers[j];
-                        numbers[j] = numbers[j + 1];
-                        numbers[j + 1] = temp;
+                        int temp = sorted[j];
+                        sorted[j] = sorted[j + 1];
+                        sorted[j + 1] = temp;
                     }
                 }
             }
-            foreach (int num in numbers)
+            foreach (int num in sorted)
             {
                 Console.Write(num+ ",");
             }
+            Console.WriteLine();
+            
         }
 
 
